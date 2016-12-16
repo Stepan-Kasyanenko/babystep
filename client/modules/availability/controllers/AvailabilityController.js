@@ -149,11 +149,22 @@ angular.module("availability")
 					tooltip.destroy();
 					var newTooltip=$tooltip(tooltip.el,tooltip.$options);
 					newTooltip.el=tooltip.el;
+					newTooltip.myScope = tooltip.myScope;
+					newTooltip.myScope.newTooltip = newTooltip;
 					newTooltips.push(newTooltip);
 					(function(newTooltip){
-						$timeout(function(){
-							newTooltip.show();
-						},0);
+
+						//console.log( newTooltip.myScope );
+						newTooltip.myScope.$watch( function(){
+							return newTooltip.myScope.show;
+						},function(n){
+							$timeout(function(){
+								if(n)
+									newTooltip.show();
+								else
+									newTooltip.hide();
+							},0);
+						});
 					})(newTooltip);
 				}
 				tooltips=newTooltips;
@@ -171,6 +182,7 @@ angular.module("availability")
 					trigger="manual";
 				var tooltip=$tooltip(elem,{title:scope.title,container:scope.container,trigger:trigger});
 				tooltip.el=elem;
+				tooltip.myScope = scope;
 				tooltips.push(tooltip);
 				function showHide(n,o){
 					if(n===o)
@@ -192,8 +204,15 @@ angular.module("availability")
 					tooltips.splice(tooltips.indexOf(tooltip),1);
 					tooltip=$tooltip(elem,{title:scope.title,container:scope.container,trigger:trigger});
 					tooltip.el=elem;
+					tooltip.myScope = scope;
 					tooltips.push(tooltip);
 				});
+				scope.$on("$destroy",function(){
+					if(tooltip)
+						tooltip.destroy();
+					if(scope.newTooltip)
+						scope.newTooltip.destroy();
+				})
 			}
 		}
 	}]);

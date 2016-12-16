@@ -130,7 +130,7 @@
 				</td>
 			</tr>
 			<tr selectable="true" selectable-list="day.days" selectable-options="{filter:'.hours'}" selectable-out="day.selectedDays" selectable-stop="vm.definData(day.selectedDays,day.days,day)" ng-repeat="day in vm.weekDays">
-				<td class="weekDay" title="Clear week">{{day.date|sugarFormat:"{Weekday}"}}</td>
+				<td class="text-left" ><span class="btn btn-defaul btn-no-border weekDay" bs-tooltip="{title:'Click to clear selection days on week'}" data-container="body" data-placement="right">{{day.date|sugarFormat:"{Weekday}"}}<span></span></td>
 				<td class="hours" colspan="{{hour.colspan}}" ng-hide="hour.isHide" ng-repeat="hour in day.days">
 					<div>
 						<p ng-if="hour.colspan<=3" data-container="body" data-title="{{vm.getTitle(hour)}}" data-show="hour.colspan<=3" bs-show-tooltip></p>
