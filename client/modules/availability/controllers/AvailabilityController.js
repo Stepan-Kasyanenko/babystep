@@ -153,11 +153,10 @@ angular.module("availability")
 					newTooltip.myScope.newTooltip = newTooltip;
 					newTooltips.push(newTooltip);
 					(function(newTooltip){
-
-						//console.log( newTooltip.myScope );
 						newTooltip.myScope.$watch( function(){
 							return newTooltip.myScope.show;
 						},function(n){
+							console.log( "show",n );
 							$timeout(function(){
 								if(n)
 									newTooltip.show();
@@ -187,6 +186,7 @@ angular.module("availability")
 				function showHide(n,o){
 					if(n===o)
 						return;
+					console.log( "showHide",n,o );
 					$timeout(function(){
 						if(n){
 							tooltip.show();
@@ -195,7 +195,7 @@ angular.module("availability")
 							tooltip.hide();
 					},0);
 				}
-
+				console.log( "created" );
 				showHide(scope.show);
 				scope.$watch("show",showHide);
 				scope.$watch("title",function(){
@@ -212,6 +212,7 @@ angular.module("availability")
 						tooltip.destroy();
 					if(scope.newTooltip)
 						scope.newTooltip.destroy();
+					console.log( "destroy" );
 				})
 			}
 		}

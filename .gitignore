@@ -54,6 +54,7 @@ node_modules/
 # Bower Files
 # --------------------
 .bower-*/
+bower_components
 .bowerrc
 
 # --------------------
