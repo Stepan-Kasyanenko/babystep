@@ -1,0 +1,18 @@
+{
+  "name": "crossover-video",
+  "dependencies": {
+    "angular": "latest",
+    "angular-resource": "latest",
+    "angular-cookies": "latest",
+    "ui-route": "latest",
+    "angular-ui-router": "https://github.com/angular-ui/ui-router.git#^0.3.2",
+    "angular-sanitize": "latest",
+    "ngstorage": "^0.3.11",
+    "font-awesome": "Font-Awesome#^4.7.0",
+    "ngSelectable": "^1.0.5",
+    "sugar-date": "^2.0.4",
+    "sugar": "^2.0.4",
+    "angular-strap": "^2.3.10",
+    "bootstrap": "^3.3.7"
+  }
+}

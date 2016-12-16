@@ -1,0 +1,9 @@
+<md-content class="md-padding">
+	<md-nav-bar ng-show="vm.menus.length>0" md-selected-nav-item="vm.currentMenu" nav-bar-aria-label="navigation links">
+		<md-nav-item ng-repeat="menu in vm.menus" md-nav-sref="{{menu.href}}" name="{{menu.href}}">{{menu.name}}</md-nav-item>
+	</md-nav-bar>
+</md-content>
+
+<div ui-view></div>
+
+
