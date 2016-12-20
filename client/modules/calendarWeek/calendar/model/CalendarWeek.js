@@ -3,20 +3,19 @@
  */
 (function(window){
 	function CalendarWeekClass(){
-		Sugar.extend();
-		Date.setLocale('en');
+
 	}
 
 	CalendarWeekClass.prototype.getRangeByDay=function(pDay,pPeriod){
 		var date=Date.create(pDay || new Date());
 		var range=Date.range(date.beginningOfDay(),date.clone().endOfDay());
-		return range.every(pPeriod);
+		return range.every(pPeriod).map(function(item){return {date:item}});
 	};
 
 	CalendarWeekClass.prototype.getWeekDays=function(pStartDate){
 		var date=Date.create(pStartDate || new Date());
 		var range=Date.range(date.beginningOfWeek(),date.clone().endOfWeek());
-		return range.every("1 day");
+		return range.every("1 day").map(function(item){return {date:item,days:null,selectedDays:[],ranges:[]}});
 	};
 	CalendarWeekClass.prototype.createRanges=function(pDays,pPeriod){
 		var result=[];
@@ -74,38 +73,6 @@
 		return result;
 	};
 
-	function totalTimeClass(time){
-		this.hour=Math.floor(time/60);
-		this.minutes=time%60;
-	}
 
-	totalTimeClass.prototype.format=function(){
-
-		var hourStr=" hour";
-		if(this.hour>1)
-			hourStr+="s";
-		if(this.hour>0)
-			hourStr=this.hour+hourStr;
-		else
-			hourStr=null;
-
-		var minuteStr=" minute";
-		if(this.minutes>1)
-			minuteStr+="s";
-		if(this.minutes>0)
-			minuteStr=this.minutes+minuteStr;
-		else
-			minuteStr=null;
-
-		var result="0 hour";
-		if(minuteStr && hourStr)
-			result=hourStr+" and "+minuteStr;
-		else if(!minuteStr && hourStr)
-			result=hourStr;
-		else if(!hourStr && minuteStr)
-			result=minuteStr;
-		return result;
-	}
 	window.CalendarWeekClass=CalendarWeekClass;
-	window.totalTimeClass=totalTimeClass;
 })(window);

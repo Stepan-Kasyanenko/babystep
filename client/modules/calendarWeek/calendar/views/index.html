@@ -1,0 +1,31 @@
+<div class="calendar-week">
+	<table class="calendar-week-table">
+		<tr>
+			<td rowspan="9">
+				<button bs-tooltip="{title:'previous date'}" data-container="body" data-placement="right" class="btn btn-default btn-big">
+					<i class="fa fa-angle-left"></i></button>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="text-align:center;" ng-repeat="hour in vm.headerDays" colspan="2">{{hour.date|sugarFormat:"{h}"}}<br>
+				<p class="small">{{hour.date|sugarFormat:"{TT}"}}</p>
+			</td>
+			<td rowspan="9">
+				<button bs-tooltip="{title:'next date'}" data-container="body" data-placement="left" class="btn btn-default btn-big">
+					<i class="fa fa-angle-right"></i></button>
+			</td>
+		</tr>
+		<tr selectable="true" selectable-list="day.days" selectable-options="{filter:'.hours'}" selectable-out="day.selectedDays" selectable-stop="vm.defineData(day)" ng-repeat="day in vm.weekDays">
+			<td class="text-left">
+				<span class="btn btn-defaul btn-no-border weekDay" bs-tooltip="{title:'Click to clear selection days on week'}" data-container="body" data-placement="right">{{day.date|sugarFormat:"{Weekday}"}}</span>
+			</td>
+			<td class="hours" colspan="{{hour.colspan}}" ng-hide="hour.isHide" ng-repeat="hour in day.days">
+				<div>
+					<p ng-if="hour.colspan<=3" data-container="body" data-title="{{vm.getTitle(hour)}}" data-show="hour.colspan<=3" bs-show-tooltip></p>
+					<span ng-if="hour.colspan>3">{{hour.range.start.format("{h}:{mm} {TT}")}} - {{hour.range.end.format("{h}:{mm} {TT}")}}</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

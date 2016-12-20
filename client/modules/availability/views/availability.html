@@ -1,146 +1,20 @@
-<style>
-	table{
-		min-width:1024px;
-		width:100%;
-	}
-	table div{
-		width:12px;
-		height:12px;
-		border-radius:100%;
-		background:#d8d9db;
-	}
-	table td{
-		width:25px;
-		text-align:center;
-		height:60px;
-	}
-	.container{
-		width:99%;
-		min-width:1048px;
-	}
-	.ui-selected div{
-		color:white;
-		background:#56ba60;
-		max-width:100%;
-		min-width:100%;
-		height:18px;
-		border-radius:15px;
-		padding-top:1px;
-		font-size:80%;
-		white-space:nowrap;
-		overflow:hidden;
-		text-overflow:ellipsis;
-	}
-	.ui-selecting div{
-		background:#67e176;
-		height:18px;
-		width:100%;
-		border-radius:15px;
-		padding-top:1px;
-	}
-	.ui-unselecting div{
-		background:#d03d1d;
-		color:white;
-		height:18px;
-		width:100%;
-		border-radius:15px;
-		padding-top:1px;
-		font-size:80%;
-	}
-	.ui-selecting span{
-		display:none;
-	}
-	.panel{
-		background-color:#f3f4f6;
-		border:1px solid #dadbdd;
-	}
-	.text-color{
-		color:#5f6062;
-	}
-	.all-font{
-		font-size:16px;
-		color:#cdced0;
-	}
-	.small{
-		font-size:12px;
-		color:#d8d9db;
-	}
-	.weekDay{
-		font-size:18px;
-	}
-	.btn-call{
-		font-size:16px;
-		background-color:#56ba60 !important;
-		position:absolute;
-		padding:5px 50px;
-		right:50px;
-		top:120px;
-		color:#f3f4f6 !important;
-	}
-	.btn-big{
-		background-color:#f3f4f6 !important;
-		height:100%;
-	}
-	.btn-no-border{
-		border:0px;
-	}
-	.no-padding{
-		padding:0px;
-	}
-	.no-padding{
-		padding:0px;
-	}
-	.timezones{
-		font-size:20px;
-	}
-</style>
 <div class="all-font">
 	<div class="text-color" align="center">
 		<div class="row">
 			<div class="col-sm-6 text-right no-padding"><span class="h3">Your timezone is set to </span> </div>
 			<div class="col-sm-6 text-left no-padding">
 				&nbsp;
-				<button type="button" class="btn btn-default btn-no-border text-color timezones no-padding" ng-model="vm.TZ" data-toggle="true" bs-options="zone as zone.text for zone in vm.timezones" bs-select>
-					<span class="caret"></span>
-				</button>
+				<timezone></timezone>
 			</div>
 		</div>
 	</div>
-	<div class="panel text-color container">
+	<div class="panel text-color">
 		<button ng-click="vm.sendToApi()" bs-tooltip="{title:'Click to save'}" data-container="body" data-placement="top" class="btn btn-default btn-call">Out of call</button>
 		<div class="text-center">
 			<p class="h1">You what time free for call?</p>
-			<p class="h3">You will be available {{vm.totalTime.format()}}</p>
+			<p class="h3">You will be available <total-time ranges="vm.ranges"></total-time></p>
 		</div>
-		<table>
-			<tr>
-				<td rowspan="9">
-					<button bs-tooltip="{title:'previous date'}" data-container="body" data-placement="right" class="btn btn-default btn-big">
-						<i class="fa fa-angle-left"></i></button>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td style="text-align:center;" ng-repeat="hour in vm.headerDays" colspan="2">{{hour.date|sugarFormat:"{h}"}}<br>
-					<p class="small">{{hour.date|sugarFormat:"{TT}"}}</p>
-				</td>
-				<td rowspan="9">
-					<button bs-tooltip="{title:'next date'}" data-container="body" data-placement="left" class="btn btn-default btn-big">
-						<i class="fa fa-angle-right"></i></button>
-				</td>
-			</tr>
-			<tr selectable="true" selectable-list="day.days" selectable-options="{filter:'.hours'}" selectable-out="day.selectedDays" selectable-stop="vm.definData(day.selectedDays,day.days,day)" ng-repeat="day in vm.weekDays">
-				<td class="text-left" ><span class="btn btn-defaul btn-no-border weekDay" bs-tooltip="{title:'Click to clear selection days on week'}" data-container="body" data-placement="right">{{day.date|sugarFormat:"{Weekday}"}}<span></span></td>
-				<td class="hours" colspan="{{hour.colspan}}" ng-hide="hour.isHide" ng-repeat="hour in day.days">
-					<div>
-						<p ng-if="hour.colspan<=3" data-container="body" data-title="{{vm.getTitle(hour)}}" data-show="hour.colspan<=3" bs-show-tooltip></p>
-						<span ng-if="hour.colspan>3">{{hour.range.start.format("{h}:{mm} {TT}")}} - {{hour.range.end.format("{h}:{mm} {TT}")}}</span>
-					</div>
-				</td>
-			</tr>
-
-		</table>
-		<div></div>
+		<calendar-week ng-if="vm.ranges" ranges="vm.ranges" ranges-change="vm.onCalendarChange(ranges)"></calendar-week>
 	</div>
 </div>
 

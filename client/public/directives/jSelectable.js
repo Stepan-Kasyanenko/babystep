@@ -1,6 +1,6 @@
 (function(){
 	'use strict';
-	angular.module("jSelectable",[])
+	angular.module("myDirective")
 		.directive("selectable",function(){
 			return {
 				scope:{
