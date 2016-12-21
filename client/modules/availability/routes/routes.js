@@ -17,6 +17,6 @@ angular.module("availability")
 				}
 			}).state('home.about',{
 				url     :'about',
-				template:'<h2>This is about page</h2><button id="about">About as</button>',
+				template:'<h2>This is about Stepan Kasyanenko page</h2>Email me at <a id="email" href="mailto:stepan.kasyanenko@gmail.com" target="_blank">stepan.kasyanenko@gmail.com</a>'
 			})
 	}]);

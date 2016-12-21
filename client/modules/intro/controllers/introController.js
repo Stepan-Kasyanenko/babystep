@@ -27,7 +27,6 @@ angular.module('intro')
 		refreshIntro.bind(this)($state.current);
 
 		$rootScope.$on("$stateChangeSuccess",(function(event,toState){
-			console.log("$stateChangeSuccess");
 			refreshIntro.bind(this)(toState);
 		}).bind(this));
 	}]);

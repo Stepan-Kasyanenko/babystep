@@ -30,8 +30,8 @@ angular.module("intro")
 				module :"home.availability"
 			},
 			{
-				element:"#about",
-				intro  :"To save the results, press the button.",
+				element:"#email",
+				intro  :"Click here to email me.",
 				module :"home.about"
 			}
 		];
