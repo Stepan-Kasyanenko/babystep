@@ -1,7 +1,7 @@
 <div class="calendar-week">
 	<table class="calendar-week-table">
 		<tr>
-			<td rowspan="9">
+			<td ng-if="false" rowspan="9">
 				<button bs-tooltip="{title:'previous date'}" data-container="body" data-placement="right" class="btn btn-default btn-big">
 					<i class="fa fa-angle-left"></i></button>
 			</td>
@@ -11,7 +11,7 @@
 			<td style="text-align:center;" ng-repeat="hour in vm.headerDays" colspan="2">{{hour.date|sugarFormat:"{h}"}}<br>
 				<p class="small">{{hour.date|sugarFormat:"{TT}"}}</p>
 			</td>
-			<td rowspan="9">
+			<td ng-if="false" rowspan="9">
 				<button bs-tooltip="{title:'next date'}" data-container="body" data-placement="left" class="btn btn-default btn-big">
 					<i class="fa fa-angle-right"></i></button>
 			</td>

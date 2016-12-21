@@ -92,7 +92,6 @@
 				var selectableEvents=scope.$eval(attr.selectableEvents) || {};
 
 				$.map(selectableEvents,function(callback,eventName){
-					console.log( callback,eventName );
 					element.bind("selectable"+eventName,function(e,ui){
 						if(e.preventDefault) e.preventDefault();
 

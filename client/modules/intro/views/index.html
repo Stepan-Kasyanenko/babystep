@@ -1,0 +1,8 @@
+<form class="navbar-form navbar-right"
+			ng-show="vm.isHaveIntro()"
+			ng-intro-options="vm.introOptions"
+			ng-intro-onexit="vm.introExit"
+			ng-intro-oncomplete="vm.introExit"
+			ng-intro-method="vm.callMe">
+	<button ng-click="vm.callIntro()" bs-tooltip="{title:'Get help'}" data-placement="left" type="button" class="btn btn-link"><i class="fa fa-question-circle"></i></button>
+</form>

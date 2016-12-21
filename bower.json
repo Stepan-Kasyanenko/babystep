@@ -13,6 +13,8 @@
     "sugar-date": "^2.0.4",
     "sugar": "^2.0.4",
     "angular-strap": "^2.3.10",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "AngularJS-Toaster": "angularjs-toaster#^2.1.0",
+    "angular-intro.js": "^2.1.1"
   }
 }

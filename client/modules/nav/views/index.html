@@ -1,9 +1,14 @@
-<md-content class="md-padding">
-	<md-nav-bar ng-show="vm.menus.length>0" md-selected-nav-item="vm.currentMenu" nav-bar-aria-label="navigation links">
-		<md-nav-item ng-repeat="menu in vm.menus" md-nav-sref="{{menu.href}}" name="{{menu.href}}">{{menu.name}}</md-nav-item>
-	</md-nav-bar>
-</md-content>
-
-<div ui-view></div>
+<nav class="navbar navbar-default" role="navigation" bs-navbar>
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" ui-sref="home" bs-tooltip="{title:'Go home'}" data-placement="right" ><img style="border-radius:12px;" height="24" width="24" alt="Babystep"src="/babystep/client/public/img/logo.png"></a>
+		</div>
+		<ul ng-show="vm.menus.length>0" class="nav navbar-nav">
+			<li bs-tooltip="{title:menu.name}" data-placement="bottom" ui-sref-active="active"  ng-repeat="menu in vm.menus"><a ui-sref="{{menu.state}}">{{menu.name}}</a></li>
+		</ul>
+		<intro-button></intro-button>
+	</div>
+</nav>
+<div class="container-fluid" ui-view></div>
 
 

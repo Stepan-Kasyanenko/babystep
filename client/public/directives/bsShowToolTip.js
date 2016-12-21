@@ -22,7 +22,6 @@
 							newTooltip.myScope.$watch(function(){
 								return newTooltip.myScope.show;
 							},function(n){
-								console.log("show",n);
 								$timeout(function(){
 									if(n)
 										newTooltip.show();

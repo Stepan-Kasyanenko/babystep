@@ -4,17 +4,17 @@
 			<div class="col-sm-6 text-right no-padding"><span class="h3">Your timezone is set to </span> </div>
 			<div class="col-sm-6 text-left no-padding">
 				&nbsp;
-				<timezone class="text-color timezones no-padding"></timezone>
+				<timezone id="stepTimezone" class="text-color timezones no-padding"></timezone>
 			</div>
 		</div>
 	</div>
 	<div class="panel text-color">
-		<button ng-click="vm.sendToApi()" bs-tooltip="{title:'Click to save'}" data-container="body" data-placement="top" class="btn btn-default btn-call">Out of call</button>
+		<button id="stepCalendarCall" ng-click="vm.sendToApi()" bs-tooltip="{title:'Click to save'}" data-container="body" data-placement="top" class="btn btn-default btn-call">Out of call</button>
 		<div class="text-center">
 			<p class="h1">You what time free for call?</p>
-			<p class="h3">You will be available <total-time ranges="vm.ranges"></total-time></p>
+			<p id="stepTotalTime" class="h3">You will be available <total-time ranges="vm.ranges"></total-time></p>
 		</div>
-		<calendar-week ng-if="vm.ranges" ranges="vm.ranges" ranges-change="vm.onCalendarChange(ranges)"></calendar-week>
+		<calendar-week id="stepCalendar" ng-if="vm.ranges" ranges="vm.ranges" ranges-change="vm.onCalendarChange(ranges)"></calendar-week>
 	</div>
 </div>
 

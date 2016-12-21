@@ -2,12 +2,12 @@
  * Created by avzal on 06.12.2016.
  */
 angular.module("availability")
-	.controller('AvailabilityController',["calendarResolve","AvailabilityAPIService","TimezoneService",function(calendarResolve,AvailabilityAPIService,TimezoneService){
+	.controller('AvailabilityController',["calendarResolve","AvailabilityAPIService","TimezoneService","toaster","IntroService","TransformRangeService",function(calendarResolve,AvailabilityAPIService,TimezoneService,toaster,IntroService,TransformRangeService){
 		this.timezones=TimezoneService.getList();
 		this.TZ=this.timezones[0];
-		var transformer=new TransformRangeClass();
-		this.ranges=transformer.fromAPI(calendarResolve);
+		this.ranges=TransformRangeService.fromAPI(calendarResolve);
 
+		//For testing purpose adding range
 		//this.addRange=function(){
 		//	var transformer=new TransformRangeClass();
 		//	this.ranges.push(
@@ -19,10 +19,9 @@ angular.module("availability")
 		//}
 
 		this.sendToApi=function(){
-			var transformer=new TransformRangeClass();
-			var result=transformer.toAPI(this.ranges);
+			var result=TransformRangeService.toAPI(this.ranges);
 			console.log("sendToApi",result);
 			AvailabilityAPIService.save(result);
-			alert("saved to localstorage")
+			toaster.pop('success',"Message","Success saved to localstorage");
 		}
 	}]);

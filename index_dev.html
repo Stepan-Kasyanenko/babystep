@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="crossover-video">
+<html ng-app="babystep">
 <head>
-	<title>Crossover Video Portal</title>
+	<title>Babystep.tv</title>
+	<link type="text/css" rel="stylesheet" href="client/public/css/style.css"/>
 	<link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
 	<link type="text/css" rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css"/>
 	<link type="text/css" rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css"/>
 	<link type="text/css" rel="stylesheet" href="bower_components/jquery-ui/themes/base/selectable.css"/>
+	<link type="text/css" rel="stylesheet" href="bower_components/angularJS-Toaster/toaster.min.css"/>
+	<link type="text/css" rel="stylesheet" href="bower_components/intro.js/minified/introjs.min.css">
 </head>
-<body>
+<body ng-cloak>
+<toaster-container></toaster-container>
 <div ui-view></div>
 </body>
 
@@ -21,11 +25,13 @@
 <script type="text/javascript" src="bower_components/angular-strap/dist/angular-strap.js"></script>
 <script type="text/javascript" src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
 <script type="text/javascript" src="bower_components/angular-strap/src/helpers/dimensions.js"></script>
+<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="bower_components/angularJS-Toaster/toaster.min.js"></script>
+
+<script type="text/javascript" src="bower_components/intro.js/minified/intro.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-intro.js/src/angular-intro.js"></script>
 
 <script type="text/javascript" src="bower_components/sugar/dist/sugar.js"></script>
-<script type="text/javascript" src="bower_components/sugar/dist/locales/ru.js"></script>
-
-
 
 <script type="text/javascript" src="client/public/app.js"></script>
 
@@ -39,6 +45,12 @@
 <script type="text/javascript" src="client/modules/nav/routes/routes.js"></script>
 <script type="text/javascript" src="client/modules/nav/services/NavService.js"></script>
 <script type="text/javascript" src="client/modules/nav/controllers/NavController.js"></script>
+
+<!--Load modules for intro-->
+<script type="text/javascript" src="client/modules/intro/app.js"></script>
+<script type="text/javascript" src="client/modules/intro/controllers/introController.js"></script>
+<script type="text/javascript" src="client/modules/intro/directives/IntroDirective.js"></script>
+<script type="text/javascript" src="client/modules/intro/services/IntroService.js"></script>
 
 <!--Load modules for availability page-->
 <link type="text/css" rel="stylesheet" href="client/modules/availability/css/style.css"/>

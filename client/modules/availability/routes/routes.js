@@ -15,5 +15,8 @@ angular.module("availability")
 						return AvailabilityAPIService.load();
 					}]
 				}
-			});
+			}).state('home.about',{
+				url     :'about',
+				template:'<h2>This is about page</h2><button id="about">About as</button>',
+			})
 	}]);

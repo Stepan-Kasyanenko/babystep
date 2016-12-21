@@ -20,6 +20,8 @@
 .panel{
 	background-color:#f3f4f6;
 	border:1px solid #dadbdd;
+	min-width:1024px;
+	max-width:100%;
 }
 .text-color{
 	color:#5f6062;

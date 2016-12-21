@@ -3,5 +3,5 @@
  */
 angular.module("availability",['calendarWeek'])
 	.run(["NavService",function(NavService){
-		NavService.put({name:"Availability",href:"home.availability",role:"Guest",order:0});//.put({name:"About",href:"home.about",role:"Authenticate",order:0.1});
+		NavService.put({name:"Availability",state:"home.availability",role:"Guest",order:0}).put({name:"About",state:"home.about",role:"Authenticate",order:0.1});
 	}]);

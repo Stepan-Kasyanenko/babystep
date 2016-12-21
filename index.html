@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="crossover-video">
+<html ng-app="babystep">
 <head>
 	<title>Babystep.tv</title>
+	<link type="text/css" rel="stylesheet" href="client/public/css/style.css"/>
 	<link type="text/css" rel="stylesheet" href="lib/css/bootstrap.min.css"/>
 	<link type="text/css" rel="stylesheet" href="lib/css/font-awesome.min.css"/>
 	<link type="text/css" rel="stylesheet" href="lib/css/jquery-ui.min.css"/>
 	<link type="text/css" rel="stylesheet" href="lib/css/selectable.css"/>
+	<link type="text/css" rel="stylesheet" href="lib/css/toaster.min.css"/>
+	<link type="text/css" rel="stylesheet" href="lib/css/introjs.min.css">
 </head>
-<body>
+<body ng-cloak>
+<toaster-container></toaster-container>
 <div ui-view></div>
 </body>
 
@@ -21,6 +25,11 @@
 <script type="text/javascript" src="lib/js/angular-strap.min.js"></script>
 <script type="text/javascript" src="lib/js/angular-strap.tpl.min.js"></script>
 <script type="text/javascript" src="lib/js/dimensions.js"></script>
+<script type="text/javascript" src="lib/js/angular-animate.min.js"></script>
+<script type="text/javascript" src="lib/js/toaster.min.js"></script>
+
+<script type="text/javascript" src="lib/js/intro.min.js"></script>
+<script type="text/javascript" src="lib/js/angular-intro.min.js"></script>
 
 <script type="text/javascript" src="lib/js/sugar.min.js"></script>
 
@@ -36,6 +45,12 @@
 <script type="text/javascript" src="client/modules/nav/routes/routes.js"></script>
 <script type="text/javascript" src="client/modules/nav/services/NavService.js"></script>
 <script type="text/javascript" src="client/modules/nav/controllers/NavController.js"></script>
+
+<!--Load modules for intro-->
+<script type="text/javascript" src="client/modules/intro/app.js"></script>
+<script type="text/javascript" src="client/modules/intro/controllers/introController.js"></script>
+<script type="text/javascript" src="client/modules/intro/directives/IntroDirective.js"></script>
+<script type="text/javascript" src="client/modules/intro/services/IntroService.js"></script>
 
 <!--Load modules for availability page-->
 <link type="text/css" rel="stylesheet" href="client/modules/availability/css/style.css"/>
