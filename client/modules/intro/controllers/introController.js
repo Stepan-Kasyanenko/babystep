@@ -21,7 +21,7 @@ angular.module('intro')
 			this.stateName=state.name;
 			this.getOptions();
 			if(!IntroService.isViewd(this.stateName)){
-				$timeout((function(){this.callIntro();}).bind(this));
+				$timeout((function(){this.callIntro();}).bind(this),1000);
 			}
 		};
 		refreshIntro.bind(this)($state.current);
